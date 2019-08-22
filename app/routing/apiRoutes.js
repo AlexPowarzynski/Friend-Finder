@@ -10,7 +10,6 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         let userFriendData = req.body;
         // console.log(userFriendData);
-        friendData.push(userFriendData);
 
         let newFriendName = "";
         let newFriendPhoto = "";
@@ -27,7 +26,7 @@ module.exports = function (app) {
         for (let i = 0; i < friendData.length; i++) {
         let tempDifference = 0;
             for (let j = 0; j < friendScoreArray.length; j++){
-                tempDifference += friendData[i].scores[j];
+                tempDifference += parseInt(friendData[i].scores[j]);
             }
             let newTempDifference = Math.abs(tempDifference - sumOfUser);
                 console.log("tempDifference" + newTempDifference);
@@ -39,6 +38,7 @@ module.exports = function (app) {
             }
 
         }
+        friendData.push(userFriendData);
         res.json({name: newFriendName, photo: newFriendPhoto})
 
     })
