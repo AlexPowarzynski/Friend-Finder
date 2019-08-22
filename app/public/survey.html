@@ -167,6 +167,7 @@
                     </div>
                     <div class="modal-body">
                         <h3 id="newFriendName"></h3>
+                        <img id="newFriendPhoto" src=""/>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -216,21 +217,27 @@
             ]
         };
         console.log(newFriend);
-
         let invalid = [];
-        $(".form-control").each(function(){
-            if ($(this).val() === ""){
-
+        $(".form-control").each(function () {
+            if ($(this).val() === "") {
+                invalid.push($(this))
             }
         });
 
-        $.post("/api/friends", newFriend, function (data) {
-            $("#newFriendName").text(data.name);
-            $("#newFriendPhoto").attr("src", data.photo);
-            console.log(data);
 
-        })
-    });
+        if(invalid > 0){
+        alert("Please fill out required information!")
+        }else {
+            $.post("/api/friends", newFriend, function (data) {
+                $("#newFriendName").text(data.name);
+                $("#newFriendPhoto").attr("src", data.photo);
+                console.log(data);
+            })
+        }
+
+
+
+        });
 
 </script>
 </body>
