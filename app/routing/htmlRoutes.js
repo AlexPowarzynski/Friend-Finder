@@ -1,8 +1,19 @@
+const path = require("path");
 
 
-app.get("/survey", function(){
+module.exports = function(app) {
 
-});
-app.get("*", function(req, res){
-    res.redirect("/");
-});
+    app.get("/", function (req, res) {
+        res.sendFile(path.join(__dirname, "public", "index.html"));
+    });
+
+    app.get("/survey", function (req, res) {
+        res.sendFile(path.join(__dirname, "public", "survey.html"));
+    });
+
+    //Redirects back to homepage if address is wrong
+    app.get("*", function (req, res) {
+        res.redirect("/");
+    });
+
+};
