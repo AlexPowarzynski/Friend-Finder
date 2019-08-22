@@ -8,20 +8,38 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        let newFriendData = req.body;
-        console.log(newFriendData);
-        friendData.push(newFriendData);
-        let friendScore = newFriendData.scores;
+        let userFriendData = req.body;
+        // console.log(userFriendData);
+        friendData.push(userFriendData);
 
         let newFriendName = "";
         let newFriendPhoto = "";
         let maxRange = 40;
+        // console.log(friendScoreArray);
+        let friendScoreArray = userFriendData.scores;
+
+
+        let sumOfUser = 0;
+        for(let i = 0; i < friendScoreArray.length; i ++){
+            sumOfUser += parseInt(friendScoreArray[i])
+        }
 
         for (let i = 0; i < friendData.length; i++) {
-            for (let a = 0; a < friendScore.length; a++){
-                
+        let tempDifference = 0;
+            for (let j = 0; j < friendScoreArray.length; j++){
+                tempDifference += friendData[i].scores[j];
             }
+            let newTempDifference = Math.abs(tempDifference - sumOfUser);
+                console.log("tempDifference" + newTempDifference);
+
+            if(newTempDifference < maxRange){
+                maxRange = tempDifference;
+                newFriendName = friendData[i].name;
+                newFriendPhoto = friendData[i].photo;
+            }
+
         }
+        res.json({name: newFriendName, photo: newFriendPhoto})
 
     })
 
