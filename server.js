@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.use(express.static(path.join(__dirname, "./app/public")));
+app.use(express.static("app/public"));
 apiRoutes(app);
 htmlRoutes(app);
 
