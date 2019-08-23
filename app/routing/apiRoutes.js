@@ -37,16 +37,17 @@ module.exports = function (app) {
         let tempDifference = 0;
             //Second loop
             for (let j = 0; j < friendScoreArray.length; j++){
-                //Sets the temp difference equal to the sum of each of their scores
-                tempDifference += parseInt(friendData[i].scores[j]);
+                //Sets the temp difference equal to the sum of each of their scores and finds the absolute value
+                tempDifference += Math.abs(parseInt(friendData[i].scores[j]) - parseInt(friendScoreArray[j]));
             }
 
             //Calculates the difference between the user and each "friend" and get's the absolute value
-            let newTempDifference = Math.abs(tempDifference - sumOfUser);
-                console.log("tempDifference" + newTempDifference);
+            // let newTempDifference = Math.abs(tempDifference - sumOfUser);
+                console.log("tempDifference " + tempDifference);
 
             //For each time it loops through it sets a new max range
-            if(newTempDifference <= maxRange){
+                console.log(maxRange);
+            if(tempDifference < maxRange){
                 maxRange = tempDifference;
 
                 //Sets those variables that we left empty earlier

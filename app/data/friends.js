@@ -64,23 +64,7 @@ let friendsArray = [
             "3",
             "3"
         ],
-    },
-    {
-        name: "Madison",
-        photo: "https://placehold.it/200x200",
-        scores: [
-            "2",
-            "2",
-            "2",
-            "4",
-            "5",
-            "3",
-            "2",
-            "2",
-            "3",
-            "1"
-        ],
-    },
+    }
 ];
 
 module.exports = friendsArray;
