@@ -3,11 +3,14 @@ const path = require("path");
 let apiRoutes = require("./app/routing/apiRoutes");
 let htmlRoutes = require("./app/routing/htmlRoutes");
 
+//Uses the port Heroku sets up for live web app or given for localhost
 let PORT = process.env.PORT || 8000;
 let app = express();
 
+//Builds req.body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 app.use(express.static(path.join(__dirname, "./app/public")));
 apiRoutes(app);

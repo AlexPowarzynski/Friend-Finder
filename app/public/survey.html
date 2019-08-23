@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/fd2abd9806.js"></script>
 
+
+    <link rel="stylesheet" href="style/style.css">
     <title>Friend Finder</title>
 </head>
 <body>
@@ -21,7 +23,7 @@
             <bold>About You</bold>
         </h3>
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name (Required)</label>
             <input type="text" class="form-control" id="name">
         </div>
         <div class="form-group">
@@ -31,12 +33,13 @@
 
         <hr>
 
-        <div id="questions">
+        <!--Questions-->
+        <div id="questionList">
 
             <h3><strong>Question 1</strong></h3>
             <div class="form-group">
-                <label for="question1">Example select</label>
-                <select class="form-control" id="question1" style="width: 20%">
+                <label for="question1">Pets are the only thing that keep me sane.</label>
+                <select class="form-control questions" id="question1">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -47,8 +50,8 @@
 
             <h3><strong>Question 2</strong></h3>
             <div class="form-group">
-                <label for="question2">Example select</label>
-                <select class="form-control" id="question2" style="width: 20%">
+                <label for="question2">Like to explore the outdoors.</label>
+                <select class="form-control questions" id="question2">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -59,8 +62,8 @@
 
             <h3><strong>Question 3</strong></h3>
             <div class="form-group">
-                <label for="question3">Example select</label>
-                <select class="form-control" id="question3" style="width: 20%">
+                <label for="question3">Like video games.</label>
+                <select class="form-control questions" id="question3">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -71,8 +74,8 @@
 
             <h3><strong>Question 4</strong></h3>
             <div class="form-group">
-                <label for="question4">Example select</label>
-                <select class="form-control" id="question4" style="width: 20%">
+                <label for="question4">Coffee is better than tea.</label>
+                <select class="form-control questions" id="question4">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -83,8 +86,8 @@
 
             <h3><strong>Question 5</strong></h3>
             <div class="form-group">
-                <label for="question5">Example select</label>
-                <select class="form-control" id="question5" style="width: 20%">
+                <label for="question5">Warm weather is better than cold weather.</label>
+                <select class="form-control questions" id="question5">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -95,8 +98,8 @@
 
             <h3><strong>Question 6</strong></h3>
             <div class="form-group">
-                <label for="question6">Example select</label>
-                <select class="form-control" id="question6" style="width: 20%">
+                <label for="question6">Career is important.</label>
+                <select class="form-control questions" id="question6">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -107,8 +110,8 @@
 
             <h3><strong>Question 7</strong></h3>
             <div class="form-group">
-                <label for="question7">Example select</label>
-                <select class="form-control" id="question7" style="width: 20%">
+                <label for="question7">Familiy is the most important thing to me.</label>
+                <select class="form-control questions" id="question7">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -119,8 +122,8 @@
 
             <h3><strong>Question 8</strong></h3>
             <div class="form-group">
-                <label for="question8">Example select</label>
-                <select class="form-control" id="question8" style="width: 20%">
+                <label for="question8">Exercising is good for the body and soul.</label>
+                <select class="form-control questions" id="question8">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -129,10 +132,10 @@
                 </select>
             </div>
 
-            <h3><strong>Question 9</strong></h3>
+            <h3><strong>My appearance is important to me.</strong></h3>
             <div class="form-group">
                 <label for="question9">Example select</label>
-                <select class="form-control" id="question9" style="width: 20%">
+                <select class="form-control questions" id="question9">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -143,8 +146,8 @@
 
             <h3><strong>Question 10</strong></h3>
             <div class="form-group">
-                <label for="question10">Example select</label>
-                <select class="form-control" id="question10" style="width: 20%">
+                <label for="question10">New friends are as important to me as old friends.</label>
+                <select class="form-control questions" id="question10">
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -157,17 +160,17 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="friendLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Your New Friend</h5>
+                        <h5 class="modal-title" id="friendLabel">Your New Friend</h5>
 
                     </div>
                     <div class="modal-body">
                         <h3 id="newFriendName"></h3>
-                        <img id="newFriendPhoto" src=""/>
+                        <img id="newFriendPhoto" src="#" alt="FriendPhoto"/>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -176,13 +179,13 @@
             </div>
         </div>
         <!--Submit Button-->
-        <a>
-            <button type="button" class="btn btn-primary btn-md" id="submitBtn" data-toggle="modal"
+        <form id="myForm">
+            <button type="submit" class="btn btn-primary btn-md" id="submitBtn" data-toggle="modal"
                     data-target="#matchModal">
                 <i class="fas fa-check-square"></i>
                 Submit
             </button>
-        </a>
+        </form>
     </div>
     <hr>
     <footer>
@@ -198,8 +201,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
-    $("#submitBtn").on("click", function (e) {
+
+    $("#myForm").on("submit", function (e) {
         e.preventDefault();
+        //Creates a new "friend" from user's inputs
         let newFriend = {
             name: $("#name").val().trim(),
             photo: $("#photoLink").val().trim(),
@@ -215,29 +220,40 @@
                 $("#question9").val(),
                 $("#question10").val()
             ]
+
         };
-        console.log(newFriend);
-        let invalid = [];
-        $(".form-control").each(function () {
-            if ($(this).val() === "") {
-                invalid.push($(this))
-            }
-        });
 
-
-        if(invalid > 0){
-        alert("Please fill out required information!")
-        }else {
+        //Posted function creates the post request for the apiRoutes.js file
+        function posted() {
             $.post("/api/friends", newFriend, function (data) {
+                //Goes through the post request then comes back with matched "friend" then pushes to modal
                 $("#newFriendName").text(data.name);
                 $("#newFriendPhoto").attr("src", data.photo);
+
                 console.log(data);
-            })
+            });
         }
 
+        console.log(newFriend);
 
-
+        //Checks to see if user has put info in the two required inputs
+        let invalid = false;
+        $(".form-control").each(function () {
+            //If these fields are empty sets invalid to true
+            if ($(this).val() === "") {
+                invalid = true
+            }
         });
+        //If invalid is true then will not run the post request
+        if (invalid === true) {
+            $("#friendLabel").text("You need to do a little more!");
+            $("#newFriendName").text("Please fill out required information!");
+            $("#newFriendPhoto").attr("src", "https://placehold.it/200x200").attr("alt", "Try Again");
+            return invalid = false
+        } else {
+            posted();
+        }
+    });
 
 </script>
 </body>
